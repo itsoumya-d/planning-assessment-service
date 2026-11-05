@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "planning-assessment-service"
+version = "1.0.0"
+description = "Planning assessment service: zones, overlays, rules, assessments, consent triggers and report sign-off."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = ["fastapi>=0.115", "uvicorn>=0.30", "pydantic>=2.8", "sqlalchemy>=2.0", "psycopg[binary]>=3.2", "alembic>=1.13", "shapely>=2.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.27"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+addopts = "-q"
